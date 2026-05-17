@@ -10,6 +10,7 @@ access.log
 
 # production
 /build
+/dist
 /access.log
 /package-lock.json
 # misc
@@ -24,3 +25,9 @@ access.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+.vercel
