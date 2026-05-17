@@ -1,8 +1,9 @@
 import axios from 'axios'
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3500'
+// Strip trailing slashes; always append /api so the env can stay short
+const BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:3500').replace(/\/+$/, '')
 
-const client = axios.create({ baseURL: `${BASE_URL}` })
+const client = axios.create({ baseURL: `${BASE_URL}/api` })
 
 client.interceptors.request.use(cfg => {
   const token = localStorage.getItem('sys_token')
