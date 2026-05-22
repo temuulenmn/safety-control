@@ -10,7 +10,7 @@ import {
 import CIcon from '@coreui/icons-react'
 import {
   cilSpeedometer, cilBuilding, cilPeople, cilAccountLogout, cilMenu,
-  cilLayers, cilCart, cilUserPlus, cilEducation, cilClipboard,
+  cilLayers, cilCart, cilUserPlus, cilEducation, cilClipboard, cilBook,
 } from '@coreui/icons'
 
 const Dashboard       = React.lazy(() => import('./views/dashboard/Dashboard'))
@@ -21,6 +21,7 @@ const MarketItems     = React.lazy(() => import('./views/marketplace/Items'))
 const MarketOrders    = React.lazy(() => import('./views/marketplace/Orders'))
 const TrainingCatalog = React.lazy(() => import('./views/training/Catalog'))
 const TrainingOrders  = React.lazy(() => import('./views/training/Orders'))
+const Documents       = React.lazy(() => import('./views/documents/Documents'))
 
 export default function Layout() {
   const dispatch   = useDispatch()
@@ -86,6 +87,12 @@ export default function Layout() {
               <CIcon icon={cilClipboard} customClassName="nav-icon" /> Сургалтын захиалга
             </NavLink>
           </CNavItem>
+          <CNavTitle>Контент</CNavTitle>
+          <CNavItem>
+            <NavLink to="/documents" className={({isActive}) => 'nav-link' + (isActive ? ' active' : '')}>
+              <CIcon icon={cilBook} customClassName="nav-icon" /> Норм дүрэм / Заавар
+            </NavLink>
+          </CNavItem>
         </CSidebarNav>
         <CSidebarFooter className="border-top d-none d-lg-flex">
           <CSidebarToggler onClick={() => dispatch({ type: 'set', sidebarUnfoldable: !show })} />
@@ -130,6 +137,7 @@ export default function Layout() {
               <Route path="/marketplace/orders" element={<MarketOrders />} />
               <Route path="/training/catalog"   element={<TrainingCatalog />} />
               <Route path="/training/orders"    element={<TrainingOrders />} />
+              <Route path="/documents"          element={<Documents />} />
             </Routes>
           </Suspense>
         </CContainer>

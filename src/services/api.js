@@ -61,6 +61,12 @@ const api = {
   updateTrainingCatalog: (id, data) => client.put(`/system/training-catalog/${id}`, data),
   deleteTrainingCatalog: (id)       => client.delete(`/system/training-catalog/${id}`),
 
+  // Document library (norms + instructions)
+  getDocuments:    (params)   => client.get('/system/documents', { params }),
+  createDocument:  (data)     => client.post('/system/documents', data),
+  updateDocument:  (id, data) => client.put(`/system/documents/${id}`, data),
+  deleteDocument:  (id)       => client.delete(`/system/documents/${id}`),
+
   // Training orders (system view)
   getTrainingOrders:     (params)   => client.get('/system/training-orders', { params }),
   scheduleTraining:      (id, data) => client.post(`/system/training-orders/${id}/schedule`, data),
